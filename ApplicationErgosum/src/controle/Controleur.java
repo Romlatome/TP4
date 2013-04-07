@@ -100,7 +100,7 @@ public class Controleur extends HttpServlet {
 					List<Trancheage> t = s.appelejbLesTranches(); // liste des tranches d'age
 					List<Categorie> cat = s.appelejbLesCategories(); // liste des categories
 					List<Catalogue> catalogue= s.appelejbLesCatalogues(); // liste des catalogues
-					System.out.println(t.get(0).getId());
+					
 					request.setAttribute("listeTranche",t);
 					request.setAttribute("listeCategorie",cat);
 					request.setAttribute("listeCatalogue",catalogue);
@@ -131,6 +131,7 @@ public class Controleur extends HttpServlet {
 					//ajout du jouet dans la table jouet
 					s.ajouter(jAjout);
 					
+					
 					Catalogue cat = s.getUnCatalogue(id_catalogue);
 					// ajout d'une ligne dans la table comporte
 					Comporte unComporte = new Comporte();
@@ -141,7 +142,9 @@ public class Controleur extends HttpServlet {
 					unComporte.setQuantite(Integer.parseInt(quantite));
 					s.ajouterComporte(unComporte);
 					
-					pageDestination ="/index.jsp";
+					pageDestination = "/Controleur?action=voirlesJouets";
+			           request.setAttribute("message","ajout");
+			           
 				}else if(SUPPRIMER_JOUET.equals(actionName))
 				{
 					//recuperation de la liste des id a effacer
@@ -154,6 +157,7 @@ public class Controleur extends HttpServlet {
 			          //preparation de la liste
 			           
 			           pageDestination = "/Controleur?action=voirlesJouets";
+			           request.setAttribute("message","suppri");
 				}
 				else if(ANNEE_CATALOGUE.equals(actionName))
 				{
@@ -202,6 +206,7 @@ public class Controleur extends HttpServlet {
 					
 					s.modifier(j);
 					pageDestination ="/Controleur?action=voirlesJouets";
+					request.setAttribute("message","modif");
 				}
 				else if (AFFICHER_DICTIONNAIRE.equals(actionName))	
 				{

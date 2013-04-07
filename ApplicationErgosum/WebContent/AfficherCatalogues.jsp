@@ -2,6 +2,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <jsp:include page="includes/header.jsp" />
+<section id="main" class="column">
 	<article class="module width_3_quarter">
 		<header><h3 class="tabs_involved">Liste du catalogue </h3>
 		</header>
@@ -30,3 +31,4 @@
 	</div>
 	</div>
 	</article>
+</section>

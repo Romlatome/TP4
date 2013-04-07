@@ -23,6 +23,19 @@
 </head>
 <body onLoad="Chargement();">
 	<jsp:include page="includes/header.jsp" />
+	<section id="main" class="column">
+	
+	<c:if test="${(message == 'ajout')}">
+		<h4 class="alert_success">Le jouet a été ajouté avec succès</h4>
+		</c:if>
+	
+	<c:if test="${(message == 'modif')}">
+		<h4 class="alert_success">Le jouet a été modifié avec succès</h4>
+		</c:if>
+		
+		<c:if test="${(message == 'suppri')}">
+		<h4 class="alert_success">La suppression s'est déroulée correctement pour le(s) jouet(s)</h4>
+		</c:if>
 	<article class="module width_3_quarter">
 		<header><h3 class="tabs_involved">Liste des jouets</h3>
 		
@@ -87,5 +100,6 @@
 	</form>
 		</div>
 		</article>
+		</section>
 </body>
 </html>
